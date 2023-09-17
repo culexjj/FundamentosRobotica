@@ -39,10 +39,10 @@ void Control::init()
     // el lock oportuno
 
     //Inicializar variables
-    valorMax = 10.0; //lectura maxima del laser (limitada por el tamaño del plano)
-    valorMin = 0.0; //lectura minima del laser
-    motorIzq = 0.0; //salida motor izquierdo
-    motorDcho = 0.0; //salida motor derecho
+    valorMax = /*a completar*/ ; //lectura maxima del laser (limitada por el tamaño del plano)
+    valorMin = /*a completar*/; //lectura minima del laser
+    motorIzq = /*a completar*/; //salida motor izquierdo
+    motorDcho = /*a completar*/; //salida motor derecho
 
     for (int i=0; i<=5;i++) {
         laserArray[i] = 0.0; //Array de lecturas laser
@@ -67,11 +67,12 @@ void Control::input()
     if(laser) {
         laser->lockDevice();
         // TODO lectura del laser, hay que hacerle lock
-        laserArray[0] = laser->currentReadingPolar(54,90); //lectura sector 1
-        laserArray[1] = laser->currentReadingPolar(18,53); //lectura sector 2
-        laserArray[2] = laser->currentReadingPolar(-18,17); //lectura sector 3
-        laserArray[3] = laser->currentReadingPolar(-54,-19); //lectura sector 4
-        laserArray[4] = laser->currentReadingPolar(-90,-55); //lectura sector 5
+        // Cada elemento del array lee un angulo determinado
+        laserArray[0] = laser->currentReadingPolar(/*a completar*/); //lectura sector 1
+        laserArray[1] = laser->currentReadingPolar(/*a completar*/); //lectura sector 2
+        laserArray[2] = laser->currentReadingPolar(/*a completar*/); //lectura sector 3
+        laserArray[3] = laser->currentReadingPolar(/*a completar*/); //lectura sector 4
+        laserArray[4] = laser->currentReadingPolar(/*a completar*/); //lectura sector 5
         laser->unlockDevice();
     }
 
@@ -93,8 +94,8 @@ void Control::proccess()
     // TODO Calcular salidas a partir de entradas y otros posibles parámetros (pesos, reglas, etc)
     // TODO Normalizar salidas entre -1 y 1
 
-    //matriz de pesos
-    double matriz [5][2] = {{0.019,0.2128},{-0.2165,0.13145},{-0.575,-0.5625},{0.1252,-0.21025},{0.2128,0.019}};
+    //matriz de pesos, los pesos establecidos no se han probado. esto es lo que se debe calcular.
+    double matriz [5][2] = {{0.0,0.1},{-0.1,0.1},{-0.5,-0.5},{0.1,-0.1},{0.1,0.0}};
 
     double velMax = robot->getTransVelMax(); //Velocidad max
 
