@@ -55,7 +55,7 @@ int main(int argc, char** argv)
   double rangoIZQ = 0; //distancia al obstaculo izq.
   double rangoDCHA = 0; //distancia al obstaculo dcho
   int giro = 0; //angulo de giro
-  int umbral = 50; //umbral error permitido 
+  int umbral = /*a completar*/; //umbral error permitido 
 
   // Activar efectores de movimiento
   robot.lock();
@@ -71,21 +71,21 @@ int main(int argc, char** argv)
   
   while (control)
  {
-	rango = laser.currentReadingPolar(-45,45); //lectura rango laser Frontal
-	rangoIZQ = laser.currentReadingPolar(60,90); //lectura rango laser IZQ
-	rangoDCHA = laser.currentReadingPolar(-90,-60); //lectura rango laser DCHA
+	rango = laser.currentReadingPolar(/*a completar*/); //lectura rango laser Frontal
+	rangoIZQ = laser.currentReadingPolar(/*a completar*/); //lectura rango laser IZQ
+	rangoDCHA = laser.currentReadingPolar(/*a completar*/); //lectura rango laser DCHA
 
 
 	if (rango > 1000)//si rango superior a 1m iniciamos movimiento
 	{
 		robot.lock();
-  		robot.setVel(150);
+  		robot.setVel(/*a completar*/);
   		robot.unlock();
 		
 		if (paredDCHA) //Pared detectada en el lado dcho del robot
 		{
 			/* Control desviacion segun umbral permitido */
-			if (rangoDCHA  > 1000 + umbral)
+			if (rangoDCHA  > /*a completar*/ + umbral)
 			{				
 				giro = giro - 5;//ajuste
 
@@ -98,7 +98,7 @@ int main(int argc, char** argv)
   				robot.unlock();
 				ArUtil::sleep(1000);
 			}
-   			if (rangoDCHA < 1000 - umbral)
+   			if (rangoDCHA < /*a completar*/ - umbral)
 			{
 				giro = giro + 5;//ajuste
 
@@ -116,7 +116,7 @@ int main(int argc, char** argv)
 		if (paredIZQ) //Pared detectada en el lado dcho del robot
 		{
 			/* Control desviacion segun umbral permitido */	
-			if (rangoIZQ  < 1000 - umbral)
+			if (rangoIZQ  < /*a completar*/ - umbral)
 			{				
 				giro = giro - 5;//ajuste
 
@@ -129,7 +129,7 @@ int main(int argc, char** argv)
   				robot.unlock();
 				ArUtil::sleep(1000);
 			}
-   			if (rangoIZQ > 1000 + umbral)
+   			if (rangoIZQ > /*a completar*/ + umbral)
 			{
 				giro = giro + 5;//ajuste
 
@@ -156,7 +156,7 @@ int main(int argc, char** argv)
 	  	robot.stop();
 	  	robot.unlock();
 
-	  while (rango <= 1000)//mientras el rango es inferior a 1m vamos girando 90º en le mismo sentido
+	  while (rango <= /*a completar*/)//mientras el rango es inferior a 1m vamos girando 90º en le mismo sentido
 	  {
 	  	if (aux == 1)//sentido de giro +
 	  	{
@@ -182,7 +182,7 @@ int main(int argc, char** argv)
 			paredDCHA = false;
 	  	}
 
-	  	rango = laser.currentReadingPolar(-45,45);//lectura rango laser
+	  	rango = laser.currentReadingPolar(/*a completar*/);//lectura rango laser
 		
 	  }
 
