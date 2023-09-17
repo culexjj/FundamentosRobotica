@@ -5,7 +5,7 @@ Adjunto código de las 3 primeras practicas, usar solo como consulta para entend
 
 La practica 4 es un proyecto de QT Creator
 
-Enjoy.
+Si teneis alguna duda, podeis contactarme en culex.jj@gmail.com, Enjoy.
 
 Culex.
 
