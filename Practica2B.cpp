@@ -55,11 +55,11 @@ int main(int argc, char** argv)
   
   ArLog::log(ArLog::Normal, "ACCION: realizar circulo 2m de radio ");
   robot.lock();
-  robot.setRotVel(-10);
-  robot.move(12560);
-  robot.setVel(360);
+  robot.setRotVel(/*a completar*/);
+  robot.move(/*a completar*/);
+  robot.setVel(/*a completar*/);
   robot.unlock();
-  ArUtil::sleep(37000);
+  ArUtil::sleep(/*a completar*/);
 
   // fin acción
   ArLog::log(ArLog::Normal, "ACCION: Salir.");
