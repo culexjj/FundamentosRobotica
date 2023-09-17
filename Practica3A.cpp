@@ -55,9 +55,9 @@ int main(int argc, char** argv)
 
   while (control)
  {
-	rango = laser.currentReadingPolar(-45,45); //lectura rango laser
+	rango = laser.currentReadingPolar(/*a completar*/); //lectura rango laser
 
-	if (rango > 1000)//si rango superior a 1m iniciamos movimiento
+	if (rango > /*a completar*/)//si rango superior a 1m iniciamos movimiento
 	{
 		robot.lock();
   		robot.setVel(200);
@@ -74,16 +74,16 @@ int main(int argc, char** argv)
 	  	robot.stop();
 	  	robot.unlock();
 
-	  	// Selección sentido de giro
+	  	// Selección sentido de giro de forma aleatoria
 	  	srand((unsigned) time(NULL));
 		int random = (rand() %2)+1;
 
 
-	  while (rango <= 1000)//mientras el rango es inferior a 1m vamos girando 90º en le mismo sentido
+	  while (rango <= /*a completar*/)//mientras el rango es inferior a 1m vamos girando 90º en le mismo sentido
 	  {
 	  	if (random == 1)//sentido de giro +
 	  	{
-			giro = giro + 90;
+			giro = giro + /*a completar*/;
 	 		ArLog::log(ArLog::Normal, "\nGirar +90º ...");
 			robot.lock();
 			robot.setHeading(giro);
@@ -93,7 +93,7 @@ int main(int argc, char** argv)
 
 	 	 if (random == 2)//sentido de giro -
 	  	{
-	  		giro = giro - 90;
+	  		giro = giro - /*a completar*/;
 	 		ArLog::log(ArLog::Normal, "\nGirar -90º ...");
 			robot.lock();
 			robot.setHeading(giro);
@@ -101,7 +101,7 @@ int main(int argc, char** argv)
 			ArUtil::sleep(4000);
 	  	}
 
-	  	rango = laser.currentReadingPolar(-45,45);//lectura rango laser
+	  	rango = laser.currentReadingPolar(/*a completar*/);//lectura rango laser
 	  }
 
 	ArLog::log(ArLog::Normal, "Fin maniobra evasiva: ");//si rango mayor a 1m termina la maniobra evasiva y 
